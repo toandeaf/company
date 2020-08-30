@@ -12,7 +12,7 @@ public class OrganizationController
     @Autowired
     OrganizationService orgService;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity getAllOrganisations()
     {
@@ -24,5 +24,14 @@ public class OrganizationController
     public ResponseEntity getOrganizationById(@PathVariable("id") String id)
     {
         return orgService.getOrganizationById(id);
+    }
+
+    @RequestMapping(value = "/{id}/applications", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity getApplicationsByOrganisation(@PathVariable("id") String id,
+                                                        @RequestParam(value = "query", required = false) String query,
+                                                        @RequestParam(value = "order", required = false) String order)
+    {
+        return orgService.getApplicationsByOrganisation(id, query, order);
     }
 }
