@@ -3,7 +3,7 @@
 This project contains the source code to run a standalone Spring Boot web server that hosts a REST API and is integrated with a Postgres relational DB.
 The service depends on a pre-configured database being both present and available to connect to. 
 
-### Docker Requirements
+#### Docker Requirements
 Firstly, in order to make use of the project's container support functionality, you must have a valid version of docker and docker-compose available and part of your relevant paths.
 
 To confirm this, open up a terminal/cmd prompt and enter:
@@ -14,14 +14,17 @@ Data being returned on both commands means you can proceed, if either is unavail
 * https://docs.docker.com/get-docker/
 * https://docs.docker.com/compose/install/
 
-### Project Set-Up
+#### Project Set-Up
 * Now that container support is up and running, git clone down the project to your local workspace.
 * Once project has resolved and your IDE has determined it to be a Maven project, run the command "mvn clean install" at the project parent level.
 * This will compile the Java code for the server and build an executable jar (see "company-api.jar" in api-service's target/ directory).
 * You must now add the appropriate directory path to the volume mount configuration in the Postgres-service docker-compose.yml:
-* Change - $DB_DATA_MOUNT variable to your designated directory - it must be empty and have full write permissions.
+* Change - "$DB_DATA_MOUNT" variable to your designated directory - it must be empty and have full write permissions.
 
-### Project Runtime
+#### Database 
+The database upon initialisation will run the "init.sql" script found within the "database" directory. Any table/data related changes can be made via additions to this script.
+
+#### Project Runtime
 You can opt to run the project locally via IDE or command line or within a docker-compose service network.
 
 #### Locally
