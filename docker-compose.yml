@@ -12,3 +12,11 @@ services:
     volumes:
       - $DB_DATA_MOUNT:/var/lib/postgres
       - ./database:/docker-entrypoint-initdb.d
+  company-api-service:
+    ports:
+      - 8080:8080/tcp
+    depends_on:
+      - postgres-service
+    build:
+      context: ./api-service
+      dockerfile: Dockerfile
