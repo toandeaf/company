@@ -53,7 +53,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <finalName>contrast-api</finalName>
+        <finalName>company-api</finalName>
     </build>
 
 </project>

@@ -20,20 +20,4 @@
         <module>api-service</module>
     </modules>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.dkanejs.maven.plugins</groupId>
-                <artifactId>docker-compose-maven-plugin</artifactId>
-                <version>4.0.0</version>
-                <configuration>
-                    <composeFile>docker-compose.yml</composeFile>
-                    <envVars>
-                        <DB_DATA_MOUNT>$HOME/docker/volumes/postgres</DB_DATA_MOUNT>
-                    </envVars>
-                    <removeVolumes>true</removeVolumes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
