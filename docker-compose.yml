@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres-service:
+    image: postgres:latest
+    container_name: postgres-container
+    ports:
+      - 5432:5432/tcp
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+    volumes:
+      - $DB_DATA_MOUNT:/var/lib/postgres
+      - ./database:/docker-entrypoint-initdb.d
